@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        package: ['core', 'ui', 'llm', 'web', 'cron']
+      fail-fast: false
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build package
+        run: |
+          if [ -f "packages/${{ matrix.package }}/package.json" ]; then
+            cd packages/${{ matrix.package }}
+            npm run build
+          elif [ -f "apps/${{ matrix.package }}/package.json" ]; then
+            cd apps/${{ matrix.package }}
+            npm run build
+          fi
+        
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.package }}-build
+          path: |
+            packages/${{ matrix.package }}/dist
+            apps/${{ matrix.package }}/.next
+            apps/${{ matrix.package }}/out
+          retention-days: 1

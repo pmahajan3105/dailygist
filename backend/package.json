@@ -1,0 +1,42 @@
+{
+  "name": "dailygist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start-dev": "tsc && nodemon dist/index.js",
+    "compile": "tsc --extendedDiagnostics --project tsconfig.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@langchain/core": "^0.3.28",
+    "@langchain/google-genai": "^0.1.6",
+    "@types/sequelize": "^4.28.20",
+    "axios": "^1.7.9",
+    "cls-hooked": "^4.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-timeout-handler": "^2.2.2",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0",
+    "js-base64": "^3.7.7",
+    "jsonwebtoken": "^9.0.2",
+    "langchain": "^0.3.11",
+    "node-cron": "^3.0.3",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.10.5",
+    "@types/node-cron": "^3.0.11",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.3"
+  }
+}

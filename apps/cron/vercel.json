@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "functions/**/*.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/functions/scheduled"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/generate-digest",
+      "schedule": "0 8 * * *"  // 8 AM daily
+    }
+  ]
+}

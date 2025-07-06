@@ -1,0 +1,28 @@
+{
+  "name": "daily-digest",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=apps/web && npm run build --workspace=packages/core && npm run build --workspace=packages/llm",
+    "dev": "npm run dev --workspace=apps/web",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "setup": "npm install && npm run install:all",
+    "install:all": "npm install && npm install --workspace=apps/web && npm install --workspace=apps/cron && npm install --workspace=packages/core && npm install --workspace=packages/llm",
+    "generate-types": "tsx ./scripts/generate-db-types.ts"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "14.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

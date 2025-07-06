@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    /* Package-specific overrides */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "types": ["node"],
+    
+    /* Paths are relative to this package */
+    "baseUrl": ".",
+    "paths": {
+      "@daily-digest/{{PACKAGE_NAME}}/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

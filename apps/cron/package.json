@@ -1,0 +1,21 @@
+{
+  "name": "@daily-digest/cron",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod",
+    "build": "tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "@daily-digest/core": "file:../../packages/core",
+    "@daily-digest/llm": "file:../../packages/llm",
+    "@vercel/node": "^3.0.0",
+    "typescript": "^5.0.0",
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "vercel": "^33.0.0"
+  }
+}

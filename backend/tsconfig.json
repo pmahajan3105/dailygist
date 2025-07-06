@@ -1,0 +1,28 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    /* Package-specific overrides */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "commonjs",
+    "types": ["node", "jest"],
+    "sourceMap": true,
+    "tsBuildInfoFile": "./buildcache",
+    
+    /* Paths are relative to this package */
+    "baseUrl": ".",
+    "paths": {
+      "@daily-digest/backend/*": ["src/*"],
+      "@daily-digest/core": ["../packages/core/src/index.ts"],
+      "@daily-digest/llm": ["../packages/llm/src/index.ts"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.test.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    /* Package-specific overrides */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "jsx": "preserve",
+    "noEmit": true,
+    "types": ["node", "jest"],
+    
+    /* Paths are relative to this package */
+    "baseUrl": ".",
+    "paths": {
+      "@daily-digest/ui/*": ["src/*"],
+      "@daily-digest/core": ["../core/src/index.ts"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
