@@ -16,9 +16,9 @@ Each task has a unique **ID** so we can mirror it 1-to-1 with GitHub Issues.
 ## 1 Core Foundation (CF-*)
 | ID | Status | Description | Source |
 |----|--------|-------------|--------|
-| CF-1 | 🆕 | Finalise `tsconfig` references & path aliases across packages | Roadmap |
-| CF-2 | 🆕 | Configure `SUPABASE_PROJECT_REF`, run `generate-types` script, commit `database.types.ts` | Roadmap |
-| CF-3 | 🆕 | Extract legacy `utils-and-helpers.ts` → `packages/core/src/utils/*` | Roadmap + Migration |
+| CF-1 | ✅ | Finalise `tsconfig` references & path aliases across packages | Roadmap |
+| CF-2 | ✅ | Configure `SUPABASE_PROJECT_REF`, run `generate-types` script, commit `database.types.ts` | Roadmap |
+| CF-3 | 🔄 | Extract legacy `utils-and-helpers.ts` → `packages/core/src/utils/*` | Roadmap + Migration |
 | CF-4 | 🆕 | Delete `daily/` folder once no imports reference it | Migration |
 
 ---
