@@ -2,8 +2,12 @@ import { createClient } from '@supabase/supabase-js';
 import { Database } from './database.types';
 
 // These will be replaced with environment variables during build
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseUrl = process.env['NEXT_PUBLIC_SUPABASE_URL'] || '';
+const supabaseAnonKey = process.env['NEXT_PUBLIC_SUPABASE_ANON_KEY'] || '';
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing required environment variables for Supabase');
+}
 
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {
@@ -51,7 +55,7 @@ export const getUserProfile = async (userId: string) => {
 };
 
 // Helper function to update user preferences
-export const updateUserPreferences = async (userId: string, preferences: any) => {
+export const updateUserPreferences = async (userId: string, preferences: Record<string, unknown>) => {
   const { data, error } = await supabase
     .from('user_profiles')
     .update({ preferences })
